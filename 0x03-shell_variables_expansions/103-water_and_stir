@@ -1,11 +1,2 @@
 #!/bin/bash
-
-# Retrieve the values from the environment variables
-water=$WATER
-stir=$STIR
-
-# Perform the addition and convert the result to base bestchol
-result=$(echo "ibase=base_water; obase=base_bestchol; $water + $stir" | bc)
-
-# Print the result
-echo "$result"
+printf '%o\n' $(( 5#$( echo $WATER | tr water 01234) + 5#$( echo $STIR | tr stir. 01234 ) )) | tr 01234567 bestchol
