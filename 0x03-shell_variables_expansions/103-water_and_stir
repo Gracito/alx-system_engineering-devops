@@ -4,14 +4,8 @@
 water=$WATER
 stir=$STIR
 
-# Check if either of the variables is unset or empty
-if [ -z "$water" ] || [ -z "$stir" ]; then
-    echo "One or both variables are unset or empty."
-    exit 1
-fi
-
-# Perform the addition
-result=$((water + stir))
+# Perform the addition and convert the result to base bestchol
+result=$(echo "ibase=base_water; obase=base_bestchol; $water + $stir" | bc)
 
 # Print the result
-echo "The sum of WATER ($water) and STIR ($stir) is: $result"
+echo "$result"
